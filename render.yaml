@@ -26,7 +26,7 @@ services:
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    publishDir: build
     envVars:
       - key: VITE_APP_API_URL
         fromService:
