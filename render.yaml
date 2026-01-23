@@ -1,0 +1,41 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: movie-app-api
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5001
+      - key: MONGODB_URI
+        sync: false # Set in Render Dashboard
+      - key: JWT_SECRET
+        sync: false # Set in Render Dashboard
+      - key: JWT_EXPIRE
+        value: 7d
+
+  # Frontend Static Site
+  - type: static
+    name: movie-app-frontend
+    env: static
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_APP_API_URL
+        fromService:
+          name: movie-app-api
+          type: web
+          property: host
+        # Note: We'll need to append /api to the auto-detected host
+        # Vite variables must be prefixed with VITE_ to be exposed to the client
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
