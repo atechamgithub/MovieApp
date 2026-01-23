@@ -14,6 +14,8 @@ A full-stack web application for exploring IMDb Top 250 movies, featuring a robu
   - Manage, edit, and delete existing entries.
 - **Responsive Design:** Premium UI built with Material UI (MUI).
 
+  ## Project Live Link : https://movie-app-ui.onrender.com
+
 ## 🛠️ Tech Stack
 
 ### Backend
