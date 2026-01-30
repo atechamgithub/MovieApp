@@ -2,6 +2,8 @@
 
 A full-stack web application for exploring IMDb Top 250 movies, featuring a robust backend with lazy processing and a modern React-based frontend.
 
+ # Project Live Link : https://movie-app-ui.onrender.com
+ 
 ## 🚀 Features
 
 - **Movie Catalog:** Explore IMDb Top Movies with pagination.
